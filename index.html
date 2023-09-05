@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Fasthand&family=Permanent+Marker&family=Poppins:ital,wght@0,400;0,600;0,700;0,800;0,900;1,300&family=Russo+One&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Fasthand&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Permanent+Marker&family=Poppins:ital,wght@0,200;0,400;0,500;0,600;0,700;0,800;0,900;1,300&family=Roboto+Slab&family=Russo+One&family=Share+Tech&display=swap" rel="stylesheet">
+    <title>CRUNCH NEWS</title>
+</head>
+<body>
+    <header>
+        <input type="checkbox" name="" id="check">
+        <div class="logo" onclick="reload()"><h1>CRUNCH NEWS</h1></div>
+        <div class="search-box" id="search-button">
+            <form action="">
+                <input type="text" placeholder="Search..." id="search-text">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+        <ul>
+            <li id="finance" onclick="onNavItemClick('finance')"><a href="#">Finance</a></li>
+            <li id="ipl" onclick="onNavItemClick('sports')"><a href="#">Sports</a></li>
+            <li id="politics" onclick="onNavItemClick('politics')"><a href="#">Politics</a></li>
+            <li><a href="#">CONTACT</a></li>
+            <li>
+                <a href="https://web.facebook.com/bbcnews/?_rdc=1&_rdr"><i class="fab fa-facebook"></i></a>
+                <a href="https://twitter.com/BBCWorld?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/bbcnews/"><i class="fab fa-instagram"></i></a>
+            </li>
+            <div class="menu">
+                <label for="check">
+                    <i class="fa fa-bars"></i>
+                </label>
+            </div>
+        </ul>
+    </header>
+    <main>
+        <div class="cards-container container flex" id="cards-container">
+            
+        </div>
+    </main>
+
+    <template id="template-news-card">
+        <div class="card">
+            <div class="card-header">
+                <img src="https://via.placeholder.com/400x200" alt="news-image" id="news-img">
+            </div>
+            <div class="card-content">
+                <h3 id="news-title">This is the Title</h3>
+                <h6 class="news-source" id="news-source">End Gadget 26/08/2023</h6>
+                <p class="news-desc" id="news-desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae saepe quis voluptatum quisquam vitae doloremque facilis molestias quae ratione cumque!</p>
+            </div>
+        </div>
+    </template>
+
+    <p></p>
+    <div class="navigation">
+        <div id="contacts">
+            <a href="https://web.facebook.com/bbcnews/?_rdc=1&_rdr"><i class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com/BBCWorld?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/bbcnews/"><i class="fab fa-instagram"></i></a>
+        </div>
+        <ul>
+            
+            <li class="list active">
+                <a href="#" id="politics" onclick="onNavItemClick('politics')">
+                    <span class="icon">
+                        <ion-icon name="home-outline"></ion-icon>
+                    </span>
+                    <span class="text">Home</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#" id="finance" onclick="onNavItemClick('finance')">
+                    <span class="icon">
+                        <ion-icon name="business"></ion-icon>
+                    </span>
+                    <span class="text">Business</span>
+                </a>
+            </li>
+            
+            <li class="list" id="list">
+                <a href="#">
+                  <span class="icon">
+                    <ion-icon name="call-outline"></ion-icon>
+                  </span>
+                  <span class="text">Contact</span>
+                </a>
+              </li>
+
+            <li class="list">
+                <a href="#" id="ipl" onclick="onNavItemClick('sports')">
+                    <span class="icon">
+                        <ion-icon name="football"></ion-icon>
+                    </span>
+                    <span class="text">Sports</span>
+                </a>
+            </li>
+            
+            <li class="list">
+                <a href="#" onclick="myFunction()">
+                    <span class="icon">
+                        <ion-icon name="moon"></ion-icon>
+                    </span>
+                    <span class="text">Dark</span>
+                </a>
+            </li>
+            <div class="indicator"></div>
+        </ul>
+    </div>
+
+    <script>
+        const list = document.querySelectorAll('.list');
+        function activeLink(){
+            list.forEach((item) => 
+            item.classList.remove('active'));
+            this.classList.add('active');
+        }
+        list.forEach((item) => 
+        item.addEventListener('click',activeLink))
+    </script>
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script>
+  /*  fetch('https://www.toptal.com/developers/feed2json/convert?url=http%3A%2F%2Ffeeds.bbci.co.uk%2Fnews%2Fworld%2Fafrica%2Frss.xml')
+  .then(response => response.json())
+  .then(newsArray => {
+    const newsContainer = document.getElementById('newsContainer');
+
+    console.log(newsArray)
+
+    newsArray.items.forEach(newsItem => {
+      const newsElement = document.createElement('div');
+      newsElement.innerHTML = `
+        <h3>${newsItem.title}</h3>
+        <p>${newsItem.content_html}</p>
+        <p>${newsItem.date_published}</p>
+        
+      `;
+      newsContainer.appendChild(newsElement);
+    });
+  })
+  .catch(error => {
+    console.error('Error fetching news:', error);
+  });
+  console.log(response.json());*/
+</script>
+    <script>
+        const API_KEY = "c4f937af1d8f492f9c9399f6f1d1cee2";
+const url = "https://newsapi.org/v2/everything?q=";
+
+window.addEventListener("load", () => fetchNews("USA"));
+
+function reload() {
+    window.location.reload();
+}
+
+async function fetchNews(query) {
+    const res = await fetch(`${url}${query}&apiKey=${API_KEY}`);
+    const data = await res.json();
+    bindData(data.articles);
+}
+
+function bindData(articles) {
+    const cardsContainer = document.getElementById("cards-container");
+    const newsCardTemplate = document.getElementById("template-news-card");
+
+    cardsContainer.innerHTML = "";
+
+    articles.forEach((article) => {
+        if (!article.urlToImage) return;
+        const cardClone = newsCardTemplate.content.cloneNode(true);
+        fillDataInCard(cardClone, article);
+        cardsContainer.appendChild(cardClone);
+    });
+}
+
+function fillDataInCard(cardClone, article) {
+    const newsImg = cardClone.querySelector("#news-img");
+    const newsTitle = cardClone.querySelector("#news-title");
+    const newsSource = cardClone.querySelector("#news-source");
+    const newsDesc = cardClone.querySelector("#news-desc");
+
+    newsImg.src = article.urlToImage;
+    newsTitle.innerHTML = article.title;
+    newsDesc.innerHTML = article.description;
+
+    const date = new Date(article.publishedAt).toLocaleString("en-US", {
+        timeZone: "Africa/Lagos",
+    });
+
+    newsSource.innerHTML = `${article.source.name} · ${date}`;
+
+    cardClone.firstElementChild.addEventListener("click", () => {
+        window.open(article.url, "_blank");
+    });
+}
+
+let curSelectedNav = null;
+function onNavItemClick(id) {
+    fetchNews(id);
+    const navItem = document.getElementById(id);
+    curSelectedNav?.classList.remove("active");
+    curSelectedNav = navItem;
+    curSelectedNav.classList.add("active");
+}
+
+const searchButton = document.getElementById("search-button");
+const searchText = document.getElementById("search-text");
+
+searchButton.addEventListener("click", () => {
+    const query = searchText.value;
+    if (!query) return;
+    fetchNews(query);
+    curSelectedNav?.classList.remove("active");
+    curSelectedNav = null;
+});
+    </script>
+    <script src="app.js"></script>
+    <script src="proxy.js"></script>
+</body>
+</html>

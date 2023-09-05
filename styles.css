@@ -1,0 +1,219 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: arial;
+    list-style:none;
+}
+body{
+    background-color: #c3f5f0;
+    height: 100vh;
+    color: black;
+    margin-bottom: 70px;
+    font-family: 'Roboto Slab', serif;
+}
+.content {
+    padding-bottom: 70px;
+    transition: padding-bottom 0.3s ease-in-out;
+  }
+.dark-mode {
+    background-color: rgb(0, 0, 12);
+    color: white;
+  }
+header{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    align-items: center;
+    z-index: 99;
+    box-shadow: 0 0 10px #000;
+    background: rgba(0,0,0,0.5);
+    position: absolute;
+    top: 0;
+}
+h1{
+    font-family: 'Russo One', sans-serif;
+    color: rgb(3, 187, 80);
+    font-size: 30px;
+}
+h1 .crn{
+    color: rgb(15, 240, 109);
+    font-family: 'Russo One', sans-serif;
+    font-size: 30px;
+}
+#check{
+    display: none;
+}
+i{
+    color: #fff;
+    cursor: pointer;
+}
+header .logo{
+    flex: 1;
+    color: #fff;
+    margin-left: 50px;
+    text-transform: uppercase;
+}
+header .search-box{
+    flex:1;
+    position: relative;
+}
+.search-box input{
+    width: 100%;
+    height: 40px;
+    border: none;
+    outline: none;
+    background: #f2f2f2;
+    border-radius: 30px;
+    color: #0000009f;
+    font-size: 15px;
+    font-weight: 600;
+    text-align:left;
+    padding-inline: 20px;
+    font-family: 'Roboto Slab', serif;
+}
+.search-box button{
+    cursor: pointer;
+    width: 40px;
+    height:40px;
+    border-radius: 30px;
+    border: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: scale(0.9);
+    background-color: green;
+}
+header ul{
+    flex: 2;
+    display: flex;
+    justify-content: space-evenly;
+}
+header ul li a{
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 10px 15px;
+}
+header ul li a:hover{
+    color: #80f7eb;
+    transform: 0.55s easeborder-bottom: 2px solid cadetblue;
+}
+header .menu{
+    font-size: 2.5em;
+    display: none;
+}
+#contacts i{
+    font-size: 30px;
+    color: teal;
+    text-decoration: none;
+    margin-top: 30px;
+    position: relative;
+    bottom: 180px;
+    left: 200px;
+    transition: all .55s ease;
+    transform: translateY(-50%);
+}
+#contacts i:hover{
+    color: #0b6ebe;
+    transform: translateY(-5px);
+}
+main{
+    padding-block: 20px;
+    margin-top: 120px;
+}
+.cards-container{
+    justify-content: space-between;
+    flex-wrap: wrap;
+    column-gap: 50px;
+    row-gap: 20px;
+    align-items: start;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Roboto Slab', serif;
+}
+.card{
+    width: 360px;
+    min-height: 400px;
+    box-shadow:  0 0 4px #d4ecff;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #80f7ebb9;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    font-family: 'Roboto Slab', serif;
+    font-size: 17px;
+    font-weight: 500;
+    
+}
+.card:hover{
+    box-shadow: 1px 1px 4px #d4ecff;
+    background-color: #b7faf3;
+    transform: translateY(-2px);
+}
+.card-header img{
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+.cards-content{
+    padding: 12px;
+    
+}
+.news-source{
+    margin-block: 12px;
+}
+.news-desc{
+    color: rgb(83, 83, 83);
+    font-size: 16px;
+}
+@media screen and (max-width: 1000px){
+    .news-input{
+        width: 10px;
+    }
+}
+
+
+@media(max-width: 1040px){
+    .search-box button{
+        position: absolute;
+    }
+    header ul{
+        position: fixed;
+        top: 100px;
+        right: -100%;
+        background: rgba(0,0,0,0.5);
+        height: calc(100vh - 100px);
+        width:50%;
+        flex-direction: column;
+        align-items: center;
+        transition: right 0.5s linear;
+    }
+    header .menu{
+        display: block;
+        width: 100px;
+        text-align: center;
+    }
+    #check:checked ~ ul{
+        right:0;
+    }
+
+}
+@media screen and (max-width: 570px){
+     
+    h1{
+        font-size: 24px;
+        position: relative;
+        right: 35px;
+    }
+}
+@media screen and (max-width: 450px){
+    h1{
+        font-size: 20px;
+    }
+}
