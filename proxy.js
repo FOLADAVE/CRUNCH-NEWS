@@ -23,3 +23,20 @@ app.get('/jokes/random', (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`listening on ${PORT}`));*/
+const express = require('express');
+const cors = require('cors'); // Import the CORS middleware
+const app = express();
+
+// Enable CORS for all routes or specify your GitHub Pages site's origin
+// Replace 'https://foladave.github.io/CRUNCH-NEWS/' with your GitHub Pages URL
+app.use(cors({
+  origin: 'https://foladave.github.io/CRUNCH-NEWS/',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  optionsSuccessStatus: 204,
+}));
+
+// Your routes and server logic go here
+
+app.listen(3000, () => {
+  console.log('Server is running on port 3000');
+});
